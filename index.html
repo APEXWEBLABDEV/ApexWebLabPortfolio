@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Web Lab | Desarrollo Web Frontend & UI/UX</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              display: ['Syne', 'sans-serif'],
+              sans: ['Plus Jakarta Sans', 'sans-serif'],
+            },
+            colors: {
+              brand: {
+                bg: '#0a0a0c',
+                card: '#121216',
+                border: '#22222a',
+                primary: '#6366f1',
+                primaryHover: '#4f46e5',
+                accent: '#a855f7',
+                text: '#f3f4f6',
+                muted: '#9ca3af',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .glass-card {
+            background: rgba(18, 18, 22, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.2);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #a855f7 0%, #6366f1 50%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-brand-bg text-brand-text font-sans antialiased selection:bg-brand-primary selection:text-white">
+
+    <!-- BACKGROUND GLOW EFFECTS -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+        <div class="absolute -top-40 -left-40 w-96 h-96 bg-brand-primary/20 rounded-full blur-[128px]"></div>
+        <div class="absolute top-1/3 -right-40 w-96 h-96 bg-brand-accent/15 rounded-full blur-[128px]"></div>
+        <div class="absolute -bottom-40 left-1/3 w-96 h-96 bg-blue-600/10 rounded-full blur-[128px]"></div>
+    </div>
+
+    <!-- NAVBAR -->
+    <header class="sticky top-0 z-50 glass-card border-b border-brand-border/50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="font-display font-bold text-xl tracking-tight flex items-center gap-2">
+                <span class="w-8 h-8 rounded-lg bg-gradient-to-tr from-brand-accent to-brand-primary flex items-center font-extrabold text-white text-xs justify-center">AWL</span>
+                <span>Apex<span class="text-brand-primary"> Web Lab</span></span>
+            </a>
+
+            <nav class="hidden md:flex gap-8 text-sm font-medium text-brand-muted">
+                <a href="#proyectos" class="hover:text-brand-text transition">Proyectos</a>
+                <a href="#metodologia" class="hover:text-brand-text transition">Enfoque UX</a>
+                <a href="#stack" class="hover:text-brand-text transition">Habilidades</a>
+                <a href="#contacto" class="hover:text-brand-text transition">Contacto</a>
+            </nav>
+
+            <a href="#contacto" class="bg-brand-primary hover:bg-brand-primaryHover text-white text-xs font-semibold px-5 py-2.5 rounded-full tracking-wide transition shadow-lg shadow-brand-primary/25">
+                Contratarme 🚀
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="max-w-7xl mx-auto px-6 py-20 md:py-28 text-center md:text-left grid md:grid-cols-12 gap-12 items-center">
+        <div class="md:col-span-7 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-brand-primary text-xs font-semibold tracking-wide">
+                <span class="w-2 h-2 rounded-full bg-brand-primary animate-ping"></span>
+                Disponible para proyectos y roles Frontend
+            </div>
+
+            <h1 class="text-4xl md:text-6xl font-display font-extrabold leading-tight">
+                Diseño & Desarrollo de <span class="gradient-text">Landing Pages</span> de Alta Conversión
+            </h1>
+
+            <p class="text-brand-muted text-base md:text-lg leading-relaxed max-w-2xl">
+                En Apex Web Lab nos especializamos en convertir visitantes en clientes. Construimos interfaces responsivas, optimizadas y visualmente impactantes utilizando Tailwind CSS y JavaScript.
+            </p>
+
+            <div class="pt-4 flex flex-wrap gap-4 justify-center md:justify-start">
+                <a href="#proyectos" class="bg-brand-primary hover:bg-brand-primaryHover text-white font-semibold px-7 py-3.5 rounded-xl text-sm transition shadow-lg shadow-brand-primary/25 flex items-center gap-2">
+                    Ver Proyectos 
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </a>
+                <a href="#contacto" class="glass-card hover:bg-white/5 text-brand-text font-medium px-7 py-3.5 rounded-xl text-sm transition flex items-center gap-2">
+                    Contratarme Directamente 🚀
+                </a>
+            </div>
+        </div>
+
+        <div class="md:col-span-5 grid grid-cols-2 gap-4">
+            <div class="glass-card p-6 rounded-2xl text-center space-y-2">
+                <span class="text-3xl font-display font-bold text-brand-primary">6</span>
+                <p class="text-xs text-brand-muted uppercase tracking-wider font-semibold">Proyectos Creados</p>
+            </div>
+            <div class="glass-card p-6 rounded-2xl text-center space-y-2">
+                <span class="text-3xl font-display font-bold text-brand-accent">100%</span>
+                <p class="text-xs text-brand-muted uppercase tracking-wider font-semibold">Responsivo & Fluid UI</p>
+            </div>
+            <div class="glass-card p-6 rounded-2xl text-center space-y-2">
+                <span class="text-3xl font-display font-bold text-emerald-400">95+</span>
+                <p class="text-xs text-brand-muted uppercase tracking-wider font-semibold">PageSpeed / UX Performance</p>
+            </div>
+            <div class="glass-card p-6 rounded-2xl text-center space-y-2">
+                <span class="text-3xl font-display font-bold text-blue-400">0</span>
+                <p class="text-xs text-brand-muted uppercase tracking-wider font-semibold">Dependencias Pesadas</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROYECTOS -->
+    <section id="proyectos" class="max-w-7xl mx-auto px-6 py-16 space-y-12">
+        <div class="text-center space-y-4 max-w-2xl mx-auto">
+            <span class="text-xs font-semibold text-brand-primary tracking-widest uppercase">Portafolio de Trabajo</span>
+            <h2 class="text-3xl md:text-4xl font-display font-bold">Landings de Negocios y Servicios</h2>
+            <p class="text-brand-muted text-sm">Interfaces diseñadas para optimizar la conversión, reservas y pedidos directos en 6 nichos comerciales clave.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- 1. BARBERÍA -->
+            <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between transition duration-300">
+                <div>
+                    <div class="relative h-48 overflow-hidden group">
+                        <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80" alt="Landing Barbería" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-md text-red-400 text-[10px] font-semibold uppercase px-3 py-1 rounded-full border border-red-500/30">
+                            01. Barbería
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <h3 class="font-display font-bold text-xl text-white">Barber & Grooming Studio</h3>
+                        <p class="text-brand-muted text-xs leading-relaxed">
+                            Plataforma de agenda y reserva de citas para barberías urbanas. Incluye catálogo visual de cortes, selección de barbero y cotización rápida.
+                        </p>
+                        <div class="space-y-2 pt-2">
+                            <span class="text-[11px] font-semibold text-brand-primary uppercase tracking-wider block">Estrategia UX:</span>
+                            <span class="text-xs text-gray-300 block bg-brand-bg/50 p-2.5 rounded-lg border border-brand-border">Reserva de turno ágil para reducir fricción en el usuario.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0 space-y-4">
+                    <div class="flex flex-wrap gap-2 text-[10px] font-medium text-brand-muted">
+                        <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">HTML5</span>
+                        <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">Tailwind CSS</span>
+                        <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">JavaScript ES6</span>
+                    </div>
+                    <a href="../landingbarberia/index.html" target="_blank" class="w-full block text-center bg-brand-primary/20 hover:bg-brand-primary/30 text-brand-primary border border-brand-primary/30 text-xs font-semibold py-2.5 rounded-xl transition">
+                        Ver Demo en Vivo 🚀
+                    </a>
+                </div>
+            </div>
+
+            <!-- 2. CLÍNICA DENTAL -->
+            <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between transition duration-300">
+                <div>
+                    <div class="relative h-48 overflow-hidden group">
+                        <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80" alt="Landing Clínica Dental" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-md text-cyan-400 text-[10px] font-semibold uppercase px-3 py-1 rounded-full border border-cyan-500/30">
+                            02. Salud & Odontología
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <h3 class="font-display font-bold text-xl text-white">Clínica Dental Sonrisas</h3>
+                        <p class="text-brand-muted text-xs leading-relaxed">
+                            Landing médica diseñada para agendar evaluaciones odontológicas. Destaca especialidades, testimonios de pacientes y agendamiento exprés.
+                        </p>
+                        <div class="space-y-2 pt-2">
+                            <span class="text-[11px] font-semibold text-brand-primary uppercase tracking-wider block">Estrategia UX:</span>
+                            <span class="text-xs text-gray-300 block bg-brand-bg/50 p-2.5 rounded-lg border border-brand-border">Generación de confianza profesional y llamadas directas a consulta.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0 space-y-4">
+                    <div class="flex flex-wrap gap-2 text-[10px] font-medium text-brand-muted">
+                        <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">HTML5</span>
+                        <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">Tailwind CSS</span>
+                        <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">Medical UX</span>
+                    </div>
+                    <a href="../landingclinicadental/index.html" target="_blank" class="w-full block text-center bg-brand-primary/20 hover:bg-brand-primary/30 text-brand-primary border border-brand-primary/30 text-xs font-semibold py-2.5 rounded-xl transition">
+                        Ver Demo en Vivo 🚀
+                    </a>
+                </div>
+            </div>
+
+            <!-- 3. FAST FOOD -->
+            <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between transition duration-300">
+                <div>
+                    <div class="relative h-48 overflow-hidden group">
+                        <img src="https://images.unsplash.com/photo-1561758033-d89a9ad46330?auto=format&fit=crop&w=800&q=80" alt="Landing Fast Food" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-md text-amber-400 text-[10px] font-semibold uppercase px-3 py-1 rounded-full border border-amber-500/30">
+                            03. Gastronomía
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <h3 class="font-display font-bold text-xl text-white">Urban Fast Food</h3>
+                        <p class="text-brand-muted text-xs leading-relaxed">
+                            Landing de alta conversión para restaurantes de comida rápida con menú dinámico, ofertas del día e integración de pedidos inmediatos por WhatsApp.
+                        </p>
+                        <div class="space-y-2 pt-2">
+                            <span class="text-[11px] font-semibold text-brand-primary uppercase tracking-wider block">Estrategia UX:</span>
+                            <span class="text-xs text-gray-300 block bg-brand-bg/50 p-2.5 rounded-lg border border-brand-border">Apetito visual + botón de pedido con 1 solo clic.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0 space-y-4">
+                    <div class="flex flex-wrap gap-2 text-[10px] font-medium text-brand-muted">
+                        <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">HTML5</span>
+                        <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">Tailwind CSS</span>
+                        <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">Menu Delivery</span>
+                    </div>
+                    <a href="../landingfastfood/index.html" target="_blank" class="w-full block text-center bg-brand-primary/20 hover:bg-brand-primary/30 text-brand-primary border border-brand-primary/30 text-xs font-semibold py-2.5 rounded-xl transition">
+                        Ver Demo en Vivo 🚀
+                    </a>
+                </div>
+            </div>
+
+            <!-- 4. FERRETERÍA -->
+            <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between transition duration-300">
+                <div>
+                    <div class="relative h-48 overflow-hidden group">
+                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" alt="Landing Ferretería" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-md text-orange-400 text-[10px] font-semibold uppercase px-3 py-1 rounded-full border border-orange-500/30">
+                            04. Comercio / Ferretería
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <h3 class="font-display font-bold text-xl text-white">Ferretería & Suministros</h3>
+                        <p class="text-brand-muted text-xs leading-relaxed">
+                            Landing industrial y comercial orientada a la venta de herramientas, equipos y materiales con buscador de productos y solicitud de presupuestos.
+                        </p>
+                        <div class="space-y-2 pt-2">
+                            <span class="text-[11px] font-semibold text-brand-primary uppercase tracking-wider block">Estrategia UX:</span>
+                            <span class="text-xs text-gray-300 block bg-brand-bg/50 p-2.5 rounded-lg border border-brand-border">Catálogo estructurado y cotizador para compras mayoristas y al detal.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0 space-y-4">
+                    <div class="flex flex-wrap gap-2 text-[10px] font-medium text-brand-muted">
+                        <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">HTML5</span>
+                        <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">Tailwind CSS</span>
+                        <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">B2B Forms</span>
+                    </div>
+                    <a href="../landingferreteria/index.html" target="_blank" class="w-full block text-center bg-brand-primary/20 hover:bg-brand-primary/30 text-brand-primary border border-brand-primary/30 text-xs font-semibold py-2.5 rounded-xl transition">
+                        Ver Demo en Vivo 🚀
+                    </a>
+                </div>
+            </div>
+
+            <!-- 5. CURSOS LASHISTA -->
+            <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between transition duration-300">
+                <div>
+                    <div class="relative h-48 overflow-hidden group">
+                        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80" alt="Lash & Beauty Academy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-md text-purple-400 text-[10px] font-semibold uppercase px-3 py-1 rounded-full border border-purple-500/30">
+                            05. Academia / Lashista
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <h3 class="font-display font-bold text-xl text-white">Lash & Beauty Academy</h3>
+                        <p class="text-brand-muted text-xs leading-relaxed">
+                            Landing page elegante para estudio de pestañas y cursos de capacitación. Integración con testimonios en video, temario de másteres presenciales y contacto rápido.
+                        </p>
+                        <div class="space-y-2 pt-2">
+                            <span class="text-[11px] font-semibold text-brand-primary uppercase tracking-wider block">Estrategia UX:</span>
+                            <span class="text-xs text-gray-300 block bg-brand-bg/50 p-2.5 rounded-lg border border-brand-border">Prueba social visual para aumentar la confianza y ventas.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0 space-y-4">
+                    <div class="flex flex-wrap gap-2 text-[10px] font-medium text-brand-muted">
+                        <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">HTML5</span>
+                        <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">Tailwind CSS</span>
+                        <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">Video Player</span>
+                    </div>
+                    <a href="../landingcursolashista/index.html" target="_blank" class="w-full block text-center bg-brand-primary/20 hover:bg-brand-primary/30 text-brand-primary border border-brand-primary/30 text-xs font-semibold py-2.5 rounded-xl transition">
+                        Ver Demo en Vivo 🚀
+                    </a>
+                </div>
+            </div>
+
+            <!-- 6. TALLER MECÁNICO -->
+            <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between transition duration-300">
+                <div>
+                    <div class="relative h-48 overflow-hidden group">
+                        <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=800&q=80" alt="Landing Taller Mecánico" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-md text-emerald-400 text-[10px] font-semibold uppercase px-3 py-1 rounded-full border border-emerald-500/30">
+                            06. Automotriz / Taller
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <h3 class="font-display font-bold text-xl text-white">Taller Mecánico Automotriz</h3>
+                        <p class="text-brand-muted text-xs leading-relaxed">
+                            Landing enfocada en servicios de mantenimiento, diagnóstico computarizado y reparación de vehículos con agenda de citas y ubicación GPS.
+                        </p>
+                        <div class="space-y-2 pt-2">
+                            <span class="text-[11px] font-semibold text-brand-primary uppercase tracking-wider block">Estrategia UX:</span>
+                            <span class="text-xs text-gray-300 block bg-brand-bg/50 p-2.5 rounded-lg border border-brand-border">Diagnóstico rápido e integración con Google Maps y asistencia directa.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0 space-y-4">
+                    <div class="flex flex-wrap gap-2 text-[10px] font-medium text-brand-muted">
+                        <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">HTML5</span>
+                        <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">Tailwind CSS</span>
+                        <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">Maps API</span>
+                    </div>
+                    <a href="../landingtallermecanico/index.html" target="_blank" class="w-full block text-center bg-brand-primary/20 hover:bg-brand-primary/30 text-brand-primary border border-brand-primary/30 text-xs font-semibold py-2.5 rounded-xl transition">
+                        Ver Demo en Vivo 🚀
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- METODOLOGÍA Y ENFOQUE UX -->
+    <section id="metodologia" class="max-w-7xl mx-auto px-6 py-16">
+        <div class="glass-card p-8 md:p-12 rounded-3xl border border-brand-border grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <span class="text-xs font-semibold text-brand-accent tracking-widest uppercase block">Enfoque de Desarrollo</span>
+                <h2 class="text-3xl font-display font-bold text-white">En Apex Web Lab construimos activos de ventas</h2>
+                <p class="text-brand-muted text-sm leading-relaxed">
+                    Un diseño bonito sin estrategia es una oportunidad perdida. Nuestros desarrollos integran psicología del consumidor, jerarquía visual clara e infraestructura técnica ligera.
+                </p>
+
+                <div class="space-y-4">
+                    <div class="flex gap-4 items-start">
+                        <div class="w-8 h-8 rounded-lg bg-brand-primary/20 text-brand-primary flex items-center justify-center font-bold text-sm shrink-0">1</div>
+                        <div>
+                            <h4 class="text-sm font-semibold text-white">Optimización Mobile-First</h4>
+                            <p class="text-xs text-brand-muted">Estructuramos primero la experiencia en smartphones, donde ocurre la mayoría del tráfico comercial.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 items-start">
+                        <div class="w-8 h-8 rounded-lg bg-brand-accent/20 text-brand-accent flex items-center justify-center font-bold text-sm shrink-0">2</div>
+                        <div>
+                            <h4 class="text-sm font-semibold text-white">Llamados a la Acción (CTA) Claros</h4>
+                            <p class="text-xs text-brand-muted">Rutas directas a conversión: integraciones con WhatsApp, formularios breves o agendas online.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 items-start">
+                        <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-sm shrink-0">3</div>
+                        <div>
+                            <h4 class="text-sm font-semibold text-white">Código Limpio sin Sobrecarga</h4>
+                            <p class="text-xs text-brand-muted">Uso de utilidades puras de Tailwind CSS sin frameworks innecesarios para máxima velocidad.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STACK Y HABILIDADES -->
+            <div id="stack" class="space-y-6 bg-brand-bg/60 p-6 rounded-2xl border border-brand-border">
+                <h3 class="font-display font-bold text-lg text-white mb-4">Habilidades Técnicas & Stack</h3>
+
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between text-xs font-semibold mb-1">
+                            <span>HTML5 / Semantic Web</span>
+                            <span class="text-brand-primary">98%</span>
+                        </div>
+                        <div class="w-full bg-white/5 h-2 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-brand-accent to-brand-primary h-full w-[98%]"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between text-xs font-semibold mb-1">
+                            <span>Tailwind CSS / Layouts Responsivos</span>
+                            <span class="text-brand-primary">95%</span>
+                        </div>
+                        <div class="w-full bg-white/5 h-2 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-brand-accent to-brand-primary h-full w-[95%]"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between text-xs font-semibold mb-1">
+                            <span>JavaScript (DOM / ES6)</span>
+                            <span class="text-brand-primary">88%</span>
+                        </div>
+                        <div class="w-full bg-white/5 h-2 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-brand-accent to-brand-primary h-full w-[88%]"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between text-xs font-semibold mb-1">
+                            <span>UI/UX Design & Prototipado</span>
+                            <span class="text-brand-primary">90%</span>
+                        </div>
+                        <div class="w-full bg-white/5 h-2 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-brand-accent to-brand-primary h-full w-[90%]"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="max-w-7xl mx-auto px-6 py-20 border-t border-brand-border">
+        <div class="grid md:grid-cols-12 gap-12 items-center">
+            
+            <div class="md:col-span-5 space-y-6">
+                <span class="text-xs font-semibold text-brand-primary tracking-widest uppercase">Contacto Directo</span>
+                <h2 class="text-3xl md:text-4xl font-display font-bold text-white">¿Hablamos sobre tu próximo proyecto?</h2>
+                <p class="text-brand-muted text-sm leading-relaxed">
+                    Apex Web Lab está disponible para proyectos freelance, desarrollo de landing pages a medida o incorporaciones a equipos frontend. Respuestas en menos de 24 horas.
+                </p>
+
+                <div class="space-y-4 pt-4">
+                    <a href="https://wa.me/584140000000" target="_blank" class="flex items-center gap-4 p-4 glass-card rounded-2xl hover:bg-white/5 transition">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">💬</div>
+                        <div>
+                            <p class="text-xs text-brand-muted">WhatsApp Directo</p>
+                            <p class="text-sm font-semibold text-white">+1 312 6801959</p>
+                        </div>
+                    </a>
+
+                    <a href="mailto:contacto@apexweblab.com" class="flex items-center gap-4 p-4 glass-card rounded-2xl hover:bg-white/5 transition">
+                        <div class="w-10 h-10 rounded-xl bg-brand-primary/20 text-brand-primary flex items-center justify-center font-bold">✉️</div>
+                        <div>
+                            <p class="text-xs text-brand-muted">Correo Electrónico</p>
+                            <p class="text-sm font-semibold text-white">contacto@apexweblab.com</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="md:col-span-7 glass-card p-8 rounded-3xl border border-brand-border">
+                <form action="https://formspree.io/f/xeajlkpp" method="POST" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-xs font-semibold text-brand-muted uppercase">Nombre Completo</label>
+                            <input type="text" name="nombre" required placeholder="Tu nombre" class="w-full bg-brand-bg/80 border border-brand-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-primary transition">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs font-semibold text-brand-muted uppercase">Correo Electrónico</label>
+                            <input type="email" name="email" required placeholder="tu@email.com" class="w-full bg-brand-bg/80 border border-brand-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-primary transition">
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-xs font-semibold text-brand-muted uppercase">Tipo de Servicio</label>
+                        <select name="servicio" class="w-full bg-brand-bg/80 border border-brand-border rounded-xl px-4 py-3 text-sm text-brand-muted focus:outline-none focus:border-brand-primary transition">
+                            <option value="landing">Desarrollo de Landing Page</option>
+                            <option value="redesign">Rediseño UI/UX</option>
+                            <option value="fulltime">Contratación Full-time / Freelance</option>
+                            <option value="other">Otro tipo de proyecto</option>
+                        </select>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-xs font-semibold text-brand-muted uppercase">Detalles del Proyecto</label>
+                        <textarea name="mensaje" rows="4" required placeholder="Cuéntame brevemente sobre tu negocio o los requerimientos del sitio..." class="w-full bg-brand-bg/80 border border-brand-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-primary transition resize-none"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-brand-primary hover:bg-brand-primaryHover text-white font-semibold py-3.5 rounded-xl text-sm transition shadow-lg shadow-brand-primary/25">
+                        Enviar Mensaje Directo 🚀
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-brand-border/50 py-8 text-center text-xs text-brand-muted">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p>© 2026 Apex Web Lab — Desarrollado con Tailwind CSS & JS.</p>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-white transition">GitHub</a>
+                <a href="#" class="hover:text-white transition">LinkedIn</a>
+                <a href="#" class="hover:text-white transition">Twitter / X</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
